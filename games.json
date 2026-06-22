@@ -1,0 +1,40 @@
+{
+  "games": [
+    {
+      "id": "pixel-runner",
+      "title": "Pixel Runner",
+      "description": "一款节奏很快的横版躲避小游戏示例。把这里替换成你的真实 GitHub Pages 游戏链接即可。",
+      "category": "动作",
+      "tags": ["像素", "反应", "单人"],
+      "url": "https://example.com/pixel-runner",
+      "repo": "",
+      "cover": "",
+      "featured": true,
+      "updatedAt": "2026-06-22"
+    },
+    {
+      "id": "number-lab",
+      "title": "Number Lab",
+      "description": "数字推理和限时挑战组合的益智小游戏示例。",
+      "category": "益智",
+      "tags": ["数字", "计时", "脑力"],
+      "url": "https://example.com/number-lab",
+      "repo": "",
+      "cover": "",
+      "featured": false,
+      "updatedAt": "2026-06-19"
+    },
+    {
+      "id": "card-memory",
+      "title": "Card Memory",
+      "description": "翻牌记忆类小游戏示例，适合替换成你已有的作品。",
+      "category": "休闲",
+      "tags": ["记忆", "卡牌", "轻松"],
+      "url": "https://example.com/card-memory",
+      "repo": "",
+      "cover": "",
+      "featured": false,
+      "updatedAt": "2026-06-18"
+    }
+  ]
+}

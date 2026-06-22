@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GameDock | 小游戏库</title>
+    <meta
+      name="description"
+      content="一个适合部署到 GitHub Pages 的网页小游戏管理平台。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <a class="brand" href="#" aria-label="GameDock 首页">
+          <span class="brand-mark">GD</span>
+          <span>
+            <strong>GameDock</strong>
+            <small id="platformVersion">Web Game Library</small>
+          </span>
+        </a>
+
+        <section class="platform-card" aria-label="平台信息">
+          <span>制作人</span>
+          <strong id="platformCreator">吴润</strong>
+          <small id="musicCredit">BGM: Dock Pulse</small>
+        </section>
+
+        <nav class="nav-stack" aria-label="游戏视图">
+          <button class="nav-button is-active" data-view="all" type="button">全部游戏</button>
+          <button class="nav-button" data-view="featured" type="button">推荐</button>
+          <button class="nav-button" data-view="recent" type="button">最近游玩</button>
+          <button class="nav-button developer-only" data-view="local" type="button">本地添加</button>
+        </nav>
+
+        <section class="quick-stats" aria-label="游戏统计">
+          <div>
+            <span id="totalGames">0</span>
+            <small>游戏</small>
+          </div>
+          <div>
+            <span id="totalCategories">0</span>
+            <small>分类</small>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">GitHub Pages 游戏启动器</p>
+            <h1>你的网页小游戏库</h1>
+            <p class="maker-line">制作人 <strong id="topbarCreator">吴润</strong> · 平台版本 <strong id="topbarVersion">v1.1.0</strong></p>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="musicButton" type="button" title="播放背景音乐" aria-label="播放背景音乐">
+              <span aria-hidden="true">BGM</span>
+            </button>
+            <button class="icon-button developer-only" id="exportButton" type="button" title="导出游戏数据" aria-label="导出游戏数据">
+              <span aria-hidden="true">↓</span>
+            </button>
+            <button class="secondary-button developer-only" id="exitDeveloperMode" type="button">退出开发者</button>
+            <button class="primary-button developer-only" id="openAddDialog" type="button">添加游戏</button>
+          </div>
+        </header>
+
+        <section class="hero-panel" id="spotlight" aria-label="精选游戏"></section>
+
+        <section class="toolbar" aria-label="筛选游戏">
+          <label class="search-field">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="输入名称、标签、简介">
+          </label>
+
+          <label class="select-field">
+            <span>分类</span>
+            <select id="categoryFilter">
+              <option value="all">全部分类</option>
+            </select>
+          </label>
+
+          <label class="select-field">
+            <span>排序</span>
+            <select id="sortSelect">
+              <option value="updated">最近更新</option>
+              <option value="title">名称</option>
+              <option value="plays">游玩次数</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="section-head">
+          <div>
+            <h2 id="libraryTitle">全部游戏</h2>
+            <p id="resultCount">正在加载游戏库</p>
+          </div>
+        </section>
+
+        <section class="game-grid" id="gameGrid" aria-live="polite"></section>
+
+        <section class="guide-panel developer-only" aria-label="如何添加新游戏">
+          <div class="section-head">
+            <div>
+              <h2>如何添加新游戏</h2>
+              <p>适合 GitHub Pages 的静态维护流程。</p>
+            </div>
+          </div>
+          <div class="guide-grid">
+            <article>
+              <span>1</span>
+              <h3>部署游戏</h3>
+              <p>先把你的小游戏部署到 GitHub Pages，确认游玩链接可以打开。</p>
+            </article>
+            <article>
+              <span>2</span>
+              <h3>填写信息</h3>
+              <p>点击“添加游戏”，填入名称、分类、游玩链接、封面图和标签。</p>
+            </article>
+            <article>
+              <span>3</span>
+              <h3>保存到仓库</h3>
+              <p>临时预览可保存到本地；正式发布请导出或复制 JSON，更新到 games.json 后提交。</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="game-dialog" id="gameDialog">
+      <form class="dialog-content" id="gameForm" method="dialog">
+        <header>
+          <div>
+            <p class="eyebrow">添加到游戏库</p>
+            <h2>新游戏信息</h2>
+          </div>
+          <button class="icon-button ghost" id="closeDialog" type="button" aria-label="关闭">×</button>
+        </header>
+
+        <ol class="add-steps">
+          <li>把小游戏部署到 GitHub Pages，复制游玩链接。</li>
+          <li>在下面填写信息，点击“添加到本地”先预览。</li>
+          <li>确认无误后点击页面右上角导出按钮，把导出的内容替换到 games.json 并提交到 GitHub。</li>
+        </ol>
+
+        <div class="form-grid">
+          <label>
+            游戏名称
+            <input name="title" required placeholder="例如：像素迷宫">
+          </label>
+          <label>
+            分类
+            <input name="category" required placeholder="益智 / 动作 / 休闲">
+          </label>
+          <label>
+            游玩链接
+            <input name="url" type="url" required placeholder="https://yourname.github.io/game/">
+          </label>
+          <label>
+            仓库链接
+            <input name="repo" type="url" placeholder="https://github.com/yourname/game">
+          </label>
+          <label>
+            封面图链接
+            <input name="cover" type="url" placeholder="可选，推荐 16:9 图片">
+          </label>
+          <label>
+            标签
+            <input name="tags" placeholder="用逗号分隔，例如：像素, 计时, 单人">
+          </label>
+          <label class="full">
+            简介
+            <textarea name="description" rows="3" required placeholder="一句话介绍玩法和亮点"></textarea>
+          </label>
+          <label class="check-row">
+            <input name="featured" type="checkbox">
+            设为推荐
+          </label>
+        </div>
+
+        <footer>
+          <button class="secondary-button" id="copyJsonButton" type="button">复制 JSON</button>
+          <button class="primary-button" type="submit">添加到本地</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <template id="emptyStateTemplate">
+      <article class="empty-state">
+        <h3>没有找到游戏</h3>
+        <p>换个关键词、切换分类，或添加一个新的 GitHub Pages 游戏。</p>
+      </article>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
