@@ -1,40 +1,40 @@
 {
   "games": [
     {
-      "id": "pixel-runner",
-      "title": "Pixel Runner",
-      "description": "一款节奏很快的横版躲避小游戏示例。把这里替换成你的真实 GitHub Pages 游戏链接即可。",
-      "category": "动作",
-      "tags": ["像素", "反应", "单人"],
-      "url": "https://example.com/pixel-runner",
+      "id": "saolei",
+      "title": "扫雷",
+      "description": "经典扫雷的网页增强版，支持初级、中级、高级和自定义棋盘，并加入公平模式、智能提示、计时、评分和连击反馈。",
+      "category": "益智",
+      "tags": ["扫雷", "逻辑", "推理", "计时", "自定义"],
+      "url": "https://rainwurun.github.io/saolei/",
       "repo": "",
-      "cover": "",
+      "cover": "assets/covers/saolei.svg",
       "featured": true,
       "updatedAt": "2026-06-22"
     },
     {
-      "id": "number-lab",
-      "title": "Number Lab",
-      "description": "数字推理和限时挑战组合的益智小游戏示例。",
+      "id": "shudu",
+      "title": "数独",
+      "description": "Sudoku Studio 提供入门到专家的多档难度，包含笔记、智能笔记、撤销重做、检查、提示、计时和最佳成绩记录。",
       "category": "益智",
-      "tags": ["数字", "计时", "脑力"],
-      "url": "https://example.com/number-lab",
+      "tags": ["数独", "数字", "逻辑", "多难度", "笔记"],
+      "url": "https://rainwurun.github.io/shudu/",
       "repo": "",
-      "cover": "",
-      "featured": false,
-      "updatedAt": "2026-06-19"
+      "cover": "assets/covers/shudu.svg",
+      "featured": true,
+      "updatedAt": "2026-06-22"
     },
     {
-      "id": "card-memory",
-      "title": "Card Memory",
-      "description": "翻牌记忆类小游戏示例，适合替换成你已有的作品。",
+      "id": "tanchishe",
+      "title": "像素贪吃蛇",
+      "description": "轻快直接的像素风贪吃蛇，支持方向键、WASD 和触控方向键，适合快速开一局挑战最高分。",
       "category": "休闲",
-      "tags": ["记忆", "卡牌", "轻松"],
-      "url": "https://example.com/card-memory",
+      "tags": ["贪吃蛇", "像素", "反应", "街机", "触控"],
+      "url": "https://rainwurun.github.io/tanchishe/",
       "repo": "",
-      "cover": "",
+      "cover": "assets/covers/tanchishe.svg",
       "featured": false,
-      "updatedAt": "2026-06-18"
+      "updatedAt": "2026-06-22"
     }
   ]
 }
